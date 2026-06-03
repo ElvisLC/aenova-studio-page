@@ -1,7 +1,12 @@
+import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, PenTool, Globe } from 'lucide-react'
+import { useParticles } from '../hooks/useParticles'
 
 export default function Hero() {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  useParticles(canvasRef)
+
   return (
     <section className="min-h-screen pt-28 pb-20 px-6 bg-[var(--brand-navy)] relative overflow-hidden">
       <div className="absolute inset-0">
@@ -10,6 +15,8 @@ export default function Hero() {
         <div className="absolute top-20 right-20 w-72 h-72 bg-[var(--brand-mint)] rounded-full blur-[150px] opacity-15" />
         <div className="absolute bottom-20 left-20 w-96 h-96 bg-[var(--brand-mint)] rounded-full blur-[180px] opacity-8" />
       </div>
+
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-0 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="max-w-4xl mx-auto text-center">
