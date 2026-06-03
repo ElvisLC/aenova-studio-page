@@ -1,4 +1,4 @@
-import { useState, ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Mail, MessageCircle, ArrowRight, ChevronDown, ArrowUpRight, Code2, Palette } from 'lucide-react'
 

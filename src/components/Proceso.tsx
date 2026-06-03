@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Check, ChevronDown } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Check } from 'lucide-react'
 
 
 
 export default function Proceso() {
   const [activeIndex, setActiveIndex] = useState(0)
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(0)
 
   const steps = [
     {
