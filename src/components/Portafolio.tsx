@@ -83,7 +83,7 @@ export default function Portafolio() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl text-[var(--text-primary)] mb-4 font-semibold">
             Trabajos que hablan por nosotros
           </h2>
-          <p className="text-[var(--text-muted)] max-w-2xl mx-auto">
+          <p className="text-[var(--text-muted)] max-w-2xl mx-auto center-text-override">
             Proyectos reales de clientes que confían en nosotros para hacer crecer su negocio.
           </p>
         </motion.div>
