@@ -273,7 +273,7 @@ export default function Footer() {
               </li>
               <li>
                 <span className="text-sm text-[var(--text-muted)]">
-                  Atención a clientes internacionales
+                  Atención a clientes internacionales.
                 </span>
               </li>
             </ul>
