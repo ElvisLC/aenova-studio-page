@@ -305,61 +305,51 @@ export default function Servicios() {
                   transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                   className="flex flex-col h-full justify-between relative z-10"
                 >
-                  <div>
-                    {/* Header: Icon and index tag */}
-                    <div className="flex items-center gap-4 mb-5">
-                      <div className="w-11 h-11 rounded-xl bg-white/[0.03] border border-white/[0.08] flex items-center justify-center shadow-inner">
-                        {(() => {
-                          const Icon = services[activeIndex].icon
-                          return <Icon className="w-5.5 h-5.5 text-[var(--brand-mint)]" />
-                        })()}
-                      </div>
-                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--brand-mint)]">
-                        Servicio {services[activeIndex].id}
-                      </span>
-                    </div>
-
-                    {/* Title & Description */}
-                    <h3 className="text-2xl font-bold text-white mb-3">
-                      {services[activeIndex].title}
-                    </h3>
-                    <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6 max-w-xl">
-                      {services[activeIndex].description}
-                    </p>
-
-                    {/* Deliverables checklist */}
-                    <div className="space-y-3">
-                      <p className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider mb-2">
-                        ¿Qué incluye este servicio?
+                  <div className="flex flex-col h-full relative z-10">
+                    <div>
+                      <h3 className="text-2xl font-bold text-white mb-3">
+                        {services[activeIndex].title}
+                      </h3>
+                      <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-6 max-w-xl">
+                        {services[activeIndex].description}
                       </p>
-                      <div className="grid grid-cols-2 gap-x-6 gap-y-2.5">
-                        {services[activeIndex].deliverables.map((item, idx) => (
-                          <div key={idx} className="flex items-start gap-2.5">
-                            <div className="w-4 h-4 rounded-full bg-[var(--brand-mint)]/10 border border-[var(--brand-mint)]/30 flex items-center justify-center mt-0.5 flex-shrink-0">
-                              <Check className="w-2.5 h-2.5 text-[var(--brand-mint)]" strokeWidth={3} />
+                    </div>
+
+                    <div className="flex items-center justify-between flex-1 py-4 gap-8">
+                      {/* Deliverables checklist */}
+                      <div className="space-y-3 flex-1">
+                        <p className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider mb-2">
+                          ¿Qué incluye este servicio?
+                        </p>
+                        <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-4 gap-y-3">
+                          {services[activeIndex].deliverables.map((item, idx) => (
+                            <div key={idx} className="flex items-start gap-2.5">
+                              <div className="w-4 h-4 rounded-full bg-[var(--brand-mint)]/10 border border-[var(--brand-mint)]/30 flex items-center justify-center mt-0.5 flex-shrink-0">
+                                <Check className="w-2.5 h-2.5 text-[var(--brand-mint)]" strokeWidth={3} />
+                              </div>
+                              <span className="text-[12px] font-medium text-[var(--text-primary)]/90 leading-tight">
+                                {item}
+                              </span>
                             </div>
-                            <span className="text-[12px] font-medium text-[var(--text-primary)]/90 leading-tight">
-                              {item}
-                            </span>
-                          </div>
-                        ))}
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Premium graphics representation */}
+                      <div className="w-48 h-32 hidden lg:flex items-center justify-center rounded-2xl bg-white/[0.02] border border-white/[0.05] p-3 shadow-inner relative overflow-hidden select-none flex-shrink-0">
+                        <ServiceGraphic type={services[activeIndex].graphicType} />
                       </div>
                     </div>
-                  </div>
 
-                  {/* Visual Graphic Representation and CTA */}
-                  <div className="flex items-end justify-between mt-auto pt-6 border-t border-white/[0.05]">
-                    <a
-                      href="#contacto"
-                      className="inline-flex items-center gap-2 bg-[var(--brand-mint)] text-[var(--bg-base)] px-6 py-2.5 rounded-full text-sm font-semibold hover:shadow-[0_0_25px_rgba(93,228,199,0.4)] hover:scale-105 active:scale-98 transition-all duration-200"
-                    >
-                      Iniciar proyecto
-                      <ArrowRight className="w-4 h-4" />
-                    </a>
-
-                    {/* Premium graphics representation */}
-                    <div className="w-40 h-24 hidden xl:flex items-center justify-center rounded-2xl bg-white/[0.02] border border-white/[0.05] p-3 shadow-inner relative overflow-hidden select-none">
-                      <ServiceGraphic type={services[activeIndex].graphicType} />
+                    {/* CTA */}
+                    <div className="pt-6 border-t border-white/[0.05] mt-auto">
+                      <a
+                        href="#contacto"
+                        className="inline-flex items-center gap-2 bg-[var(--brand-mint)] text-[var(--bg-base)] px-6 py-2.5 rounded-full text-sm font-semibold hover:shadow-[0_0_25px_rgba(93,228,199,0.4)] hover:scale-105 active:scale-98 transition-all duration-200"
+                      >
+                        Iniciar proyecto
+                        <ArrowRight className="w-4 h-4" />
+                      </a>
                     </div>
                   </div>
                 </motion.div>
@@ -410,33 +400,40 @@ export default function Servicios() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                     >
-                      <div className="px-4 pb-5 pt-1 border-t border-white/[0.03] flex flex-col gap-4">
+                      <div className="px-4 pb-5 pt-2 border-t border-white/[0.03] flex flex-col gap-4">
                         <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                           {service.description}
                         </p>
 
-                        {/* Deliverables checklist */}
-                        <div className="space-y-2 mt-1">
-                          <p className="text-[9px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
-                            ¿Qué incluye?
-                          </p>
-                          <div className="grid grid-cols-1 gap-2">
-                            {service.deliverables.map((item, idx) => (
-                              <div key={idx} className="flex items-start gap-2">
-                                <div className="w-3.5 h-3.5 rounded-full bg-[var(--brand-mint)]/10 border border-[var(--brand-mint)]/30 flex items-center justify-center mt-0.5 flex-shrink-0">
-                                  <Check className="w-2 h-2 text-[var(--brand-mint)]" strokeWidth={3} />
+                        <div className="flex items-end justify-between gap-4">
+                          {/* Deliverables checklist */}
+                          <div className="flex-1 space-y-2">
+                            <p className="text-[9px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
+                              ¿Qué incluye?
+                            </p>
+                            <div className="grid grid-cols-1 gap-1.5">
+                              {service.deliverables.slice(0, 3).map((item, idx) => (
+                                <div key={idx} className="flex items-start gap-1.5">
+                                  <div className="w-3.5 h-3.5 rounded-full bg-[var(--brand-mint)]/10 border border-[var(--brand-mint)]/30 flex items-center justify-center mt-0.5 flex-shrink-0">
+                                    <Check className="w-2 h-2 text-[var(--brand-mint)]" strokeWidth={3} />
+                                  </div>
+                                  <span className="text-[11px] text-[var(--text-primary)]/90 leading-tight">
+                                    {item}
+                                  </span>
                                 </div>
-                                <span className="text-[11px] text-[var(--text-primary)]/90 leading-tight">
-                                  {item}
-                                </span>
-                              </div>
-                            ))}
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Graphic */}
+                          <div className="w-24 h-16 flex-shrink-0 flex justify-end">
+                            <ServiceGraphic type={service.graphicType} />
                           </div>
                         </div>
 
                         <a
                           href="#contacto"
-                          className="mt-3 inline-flex items-center justify-center gap-2 bg-[var(--brand-mint)] text-[var(--bg-base)] py-2.5 px-6 rounded-full text-xs font-semibold w-full hover:shadow-[0_0_20px_rgba(93,228,199,0.4)] active:scale-98 transition-all duration-200"
+                          className="mt-1 inline-flex items-center justify-center gap-2 bg-[var(--brand-mint)] text-[var(--bg-base)] py-2.5 px-6 rounded-full text-xs font-semibold w-full hover:shadow-[0_0_20px_rgba(93,228,199,0.4)] active:scale-98 transition-all duration-200"
                         >
                           Iniciar proyecto
                           <ArrowRight className="w-4 h-4" />
