@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Layout, FileText, PenTool, Palette, Search, Lightbulb } from 'lucide-react'
+import { Layout, FileText, PenTool, Palette, Search, Lightbulb, ArrowRight } from 'lucide-react'
 
 export default function Servicios() {
   const services = [
@@ -54,10 +54,10 @@ export default function Servicios() {
           <span className="inline-block text-sm font-medium text-[var(--brand-mint)] mb-4">
             Servicios
           </span>
-          <h2 className="text-3xl md:text-4xl text-[var(--text-primary)] mb-4">
+          <h2 className="text-3xl md:text-4xl text-[var(--text-primary)] mb-4 text-center">
             Todo lo que necesitas para construir tu presencia digital
           </h2>
-          <p className="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          <p className="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto center-text-override">
             Desde la identidad visual hasta el sistema que la hace funcionar.
           </p>
         </motion.div>
@@ -74,18 +74,22 @@ export default function Servicios() {
                 delay: index * 0.08,
                 ease: [0.25, 0.1, 0.25, 1],
               }}
-              whileHover={{ y: -4 }}
-              className="group p-6 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-base)] hover:border-[var(--border-mint)] hover:shadow-[0_0_30px_var(--action-glow)] transition-all duration-200 cursor-pointer"
+              whileHover={{ y: -6 }}
+              className="group p-8 rounded-xl bg-gradient-to-b from-[var(--bg-surface)] to-[var(--bg-surface)]/80 border border-[var(--border-base)] hover:border-[var(--brand-mint)]/40 hover:shadow-[0_0_35px_rgba(93,228,199,0.08)] transition-all duration-300 cursor-pointer flex flex-col h-full"
             >
-              <div className="w-10 h-10 rounded-lg bg-[var(--brand-mint)]/10 border border-[var(--brand-mint)]/20 flex items-center justify-center mb-4 group-hover:bg-[var(--brand-mint)]/20 transition-colors duration-200">
-                <service.icon className="w-5 h-5 text-[var(--brand-mint)]" />
+              <div className="w-12 h-12 rounded-lg bg-[var(--brand-mint)]/10 border border-[var(--brand-mint)]/20 flex items-center justify-center mb-6 group-hover:bg-[var(--brand-mint)]/20 group-hover:scale-105 group-hover:shadow-[0_0_15px_rgba(93,228,199,0.3)] transition-all duration-300">
+                <service.icon className="w-6 h-6 text-[var(--brand-mint)]" />
               </div>
-              <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">
+              <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-3 group-hover:text-[var(--brand-mint)] transition-colors duration-300">
                 {service.title}
               </h3>
-              <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+              <p className="text-base text-[var(--text-secondary)] leading-relaxed flex-grow">
                 {service.description}
               </p>
+              <div className="mt-6 flex items-center text-sm font-semibold text-[var(--brand-mint)] opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                <span className="mr-1">Saber más</span>
+                <ArrowRight className="w-4 h-4" />
+              </div>
             </motion.div>
           ))}
         </div>

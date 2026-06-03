@@ -3,9 +3,9 @@ import { Cpu, Building2, Zap, Layers, Activity } from 'lucide-react'
 
 const clients = [
   {
-    name: 'LagusancaV',
+    name: 'La Laguna Azul',
     imgSrc: '/logo-laundry.jpg',
-    link: 'https://lagusanca.com',
+    link: 'https://la-laguna-azul-laundry.vercel.app/',
     textStyle: 'font-semibold tracking-tight text-base md:text-lg',
   },
   {
@@ -73,7 +73,7 @@ export default function Logos() {
           {/* Render combined list twice for mathematically perfect loop */}
           {[...list, ...list].map((client, index) => {
             const Icon = client.icon
-            
+
             const Content = (
               <div className="flex items-center gap-3 px-2 select-none group transition-all duration-300">
                 <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-[var(--bg-elevated)] border border-[var(--border-strong)] flex items-center justify-center group-hover:border-[var(--brand-mint)] group-hover:shadow-[0_0_15px_var(--action-glow)] transition-all duration-300 flex-shrink-0 overflow-hidden">

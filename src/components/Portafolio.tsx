@@ -15,7 +15,7 @@ const projects: Project[] = [
     name: 'LagusancaV',
     category: 'ambos',
     description: 'Plataforma web completa para lavandería con sistema de gestión, booking online y control de inventario.',
-    link: 'https://lagusanca.com',
+    link: 'https://la-laguna-azul-laundry.vercel.app/#privacidad',
   },
   {
     id: 2,

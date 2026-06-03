@@ -39,7 +39,7 @@ export default function Valor() {
           <h2 className="text-3xl md:text-4xl text-[var(--text-primary)] mb-4">
             Un estudio que entiende tanto el píxel como el código
           </h2>
-          <p className="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          <p className="text-lg text-[var(--text-secondary)] max-w-2xl w-full center-text-override">
             No tercerizamos ni fragmentamos tu proyecto. Diseño y desarrollo bajo
             el mismo techo significa menos fricciones, más coherencia y entregas
             más rápidas.
