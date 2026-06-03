@@ -1,7 +1,52 @@
-import { motion } from 'framer-motion'
-import { Mail, MessageCircle, ArrowRight } from 'lucide-react'
+import { useState, ReactNode } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Mail, MessageCircle, ArrowRight, ChevronDown, ArrowUpRight, Code2, Palette } from 'lucide-react'
+
+interface ContactCardProps {
+  href: string
+  phone: string
+  role: string
+  name: string
+  icon: ReactNode
+  onClick?: () => void
+}
+
+function WhatsAppContactCard({ href, phone, role, name, icon, onClick }: ContactCardProps) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={onClick}
+      className="group block p-3 rounded-xl hover:bg-white/[0.03] transition-all duration-300 relative overflow-hidden text-left"
+    >
+      <div className="flex items-center gap-3 relative z-10">
+        <div className="w-8 h-8 rounded-lg bg-[var(--brand-mint)]/5 flex items-center justify-center flex-shrink-0 group-hover:scale-105 group-hover:bg-[var(--brand-mint)]/10 transition-all duration-300">
+          {icon}
+        </div>
+        <div className="min-w-0 flex-grow">
+          <div className="flex items-center gap-1.5">
+            <span className="text-xs font-semibold text-[var(--text-primary)] tracking-wide group-hover:text-[var(--brand-mint)] transition-colors duration-300">
+              {name}
+            </span>
+            <span className="inline-block w-1 h-1 rounded-full bg-[#25D366] animate-pulse" />
+          </div>
+          <p className="text-[9px] text-[var(--text-muted)] mt-0.5 font-medium uppercase tracking-wider">
+            {role}
+          </p>
+          <p className="text-xs text-[var(--text-secondary)] mt-0.5 font-mono font-medium opacity-80 group-hover:opacity-100 transition-opacity">
+            {phone}
+          </p>
+        </div>
+        <ArrowUpRight className="w-3.5 h-3.5 text-[var(--text-muted)] group-hover:text-[var(--brand-mint)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 opacity-0 group-hover:opacity-100 flex-shrink-0" />
+      </div>
+    </a>
+  )
+}
 
 export default function Footer() {
+  const [isOpen, setIsOpen] = useState(false)
+
   const servicios = [
     { label: 'Desarrollo de Apps Web', href: '#servicios' },
     { label: 'Desarrollo de Landing Pages', href: '#servicios' },
@@ -39,16 +84,57 @@ export default function Footer() {
               Diseño y desarrollo para empresas que quieren crecer.
             </p>
 
-            <div className="mt-6 flex flex-col gap-3">
-              <a
-                href="https://wa.me/1234567890"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#20BD5A] transition-all duration-150 hover:scale-[1.02]"
-              >
-                <MessageCircle className="w-4 h-4" />
-                Chatear por WhatsApp
-              </a>
+            <div className="mt-6 flex flex-col gap-3 relative">
+              <div className="relative">
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#20BD5A] transition-all duration-150 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Chatear
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                <AnimatePresence>
+                  {isOpen && (
+                    <>
+                      <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)} />
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.95, x: '-50%' }}
+                        animate={{ opacity: 1, y: 0, scale: 1, x: '-50%' }}
+                        exit={{ opacity: 0, y: 10, scale: 0.95, x: '-50%' }}
+                        transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+                        className="absolute left-1/2 bottom-full mb-3 w-[270px] rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-base)] p-2 shadow-2xl z-20 backdrop-blur-xl flex flex-col gap-1.5"
+                      >
+                        <div className="px-3 pt-2 pb-1 text-left">
+                          <p className="text-[9px] font-bold text-[var(--text-muted)] uppercase tracking-widest">
+                            Canales de contacto
+                          </p>
+                        </div>
+                        <div className="flex flex-col gap-1">
+                          <WhatsAppContactCard
+                            href="https://wa.me/584143778737"
+                            phone="+58 414-3778737"
+                            name="Informática y Código"
+                            role="Desarrollo Web"
+                            icon={<Code2 className="w-4 h-4 text-[var(--brand-mint)]" />}
+                            onClick={() => setIsOpen(false)}
+                          />
+                          <WhatsAppContactCard
+                            href="https://wa.me/584241405402"
+                            phone="+58 424-1405402"
+                            name="Diseño Gráfico"
+                            role="Identidad y UI/UX"
+                            icon={<Palette className="w-4 h-4 text-[var(--brand-mint)]" />}
+                            onClick={() => setIsOpen(false)}
+                          />
+                        </div>
+                      </motion.div>
+                    </>
+                  )}
+                </AnimatePresence>
+              </div>
+
               <a
                 href="mailto:hola@aenova.studio"
                 className="inline-flex items-center justify-center gap-2 bg-[var(--bg-elevated)] border border-[var(--border-base)] text-[var(--text-primary)] px-5 py-2.5 rounded-full text-sm font-medium hover:border-[var(--border-mint)] hover:text-[var(--brand-mint)] transition-all duration-150"
@@ -156,6 +242,28 @@ export default function Footer() {
                 >
                   <Mail className="w-4 h-4 text-[var(--brand-mint)]" />
                   hola@aenova.studio
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/584143778737"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-150 flex items-center gap-2"
+                >
+                  <MessageCircle className="w-4 h-4 text-[var(--brand-mint)]" />
+                  +58 414-3778737
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/584241405402"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-150 flex items-center gap-2"
+                >
+                  <MessageCircle className="w-4 h-4 text-[var(--brand-mint)]" />
+                  +58 424-1405402
                 </a>
               </li>
               <li>
