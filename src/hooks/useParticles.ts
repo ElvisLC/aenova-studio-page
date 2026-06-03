@@ -11,7 +11,16 @@ type Particle = {
   breathFreq: number
 }
 
-const PARTICLE_COUNT = 120
+// Desktop config
+const DESKTOP_PARTICLE_COUNT = 120
+const DESKTOP_LINK_ENABLED = true
+
+// Mobile config (< 768px)
+const MOBILE_PARTICLE_COUNT = 40
+const MOBILE_LINK_ENABLED = false
+const MOBILE_MAX_DPR = 2
+
+// Shared config
 const MIN_SIZE = 1
 const MAX_SIZE = 2.5
 const MIN_SPEED = -0.3
@@ -43,8 +52,12 @@ function createParticle(width: number, height: number): Particle {
   }
 }
 
-function createParticles(width: number, height: number): Particle[] {
-  return Array.from({ length: PARTICLE_COUNT }, () => createParticle(width, height))
+function createParticles(count: number, width: number, height: number): Particle[] {
+  return Array.from({ length: count }, () => createParticle(width, height))
+}
+
+function isMobile(): boolean {
+  return window.innerWidth < 768
 }
 
 export function useParticles(canvasRef: RefObject<HTMLCanvasElement | null>): void {
@@ -59,17 +72,32 @@ export function useParticles(canvasRef: RefObject<HTMLCanvasElement | null>): vo
     const mouse: { x: number | null; y: number | null } = { x: null, y: null }
     let animationId = 0
     let resizeFrame = 0
+    let mobile = isMobile()
+    let particleCount = mobile ? MOBILE_PARTICLE_COUNT : DESKTOP_PARTICLE_COUNT
+    let linksEnabled = mobile ? MOBILE_LINK_ENABLED : DESKTOP_LINK_ENABLED
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect()
       if (rect.width === 0 || rect.height === 0) return
-      const dpr = window.devicePixelRatio || 1
+
+      // Recalculate mobile state on resize
+      const wasMobile = mobile
+      mobile = isMobile()
+      linksEnabled = mobile ? MOBILE_LINK_ENABLED : DESKTOP_LINK_ENABLED
+      particleCount = mobile ? MOBILE_PARTICLE_COUNT : DESKTOP_PARTICLE_COUNT
+
+      // Cap DPR on mobile for performance
+      const dpr = mobile
+        ? Math.min(window.devicePixelRatio || 1, MOBILE_MAX_DPR)
+        : window.devicePixelRatio || 1
+
       canvas.width = rect.width * dpr
       canvas.height = rect.height * dpr
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
 
-      if (particles.length === 0) {
-        particles = createParticles(rect.width, rect.height)
+      // Recreate particles if switching between mobile/desktop or first load
+      if (particles.length === 0 || wasMobile !== mobile) {
+        particles = createParticles(particleCount, rect.width, rect.height)
       }
     }
 
@@ -82,6 +110,8 @@ export function useParticles(canvasRef: RefObject<HTMLCanvasElement | null>): vo
     }
 
     const handleMouseMove = (event: MouseEvent) => {
+      // Skip mouse tracking on mobile (no hover)
+      if (mobile) return
       const rect = canvas.getBoundingClientRect()
       mouse.x = event.clientX - rect.left
       mouse.y = event.clientY - rect.top
@@ -109,10 +139,12 @@ export function useParticles(canvasRef: RefObject<HTMLCanvasElement | null>): vo
 
       ctx.clearRect(0, 0, width, height)
 
+      // Update and draw particles
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i]
 
-        if (mouse.x !== null && mouse.y !== null) {
+        // Mouse attraction (desktop only)
+        if (!mobile && mouse.x !== null && mouse.y !== null) {
           const dx = mouse.x - p.x
           const dy = mouse.y - p.y
           const dist = Math.hypot(dx, dy)
@@ -123,46 +155,54 @@ export function useParticles(canvasRef: RefObject<HTMLCanvasElement | null>): vo
           }
         }
 
+        // Clamp velocity
         if (p.vx > MAX_VELOCITY) p.vx = MAX_VELOCITY
         else if (p.vx < -MAX_VELOCITY) p.vx = -MAX_VELOCITY
         if (p.vy > MAX_VELOCITY) p.vy = MAX_VELOCITY
         else if (p.vy < -MAX_VELOCITY) p.vy = -MAX_VELOCITY
 
+        // Move
         p.x += p.vx
         p.y += p.vy
 
+        // Wrap around
         if (p.x < 0) p.x = width
         else if (p.x > width) p.x = 0
         if (p.y < 0) p.y = height
         else if (p.y > height) p.y = 0
 
+        // Breathing opacity
         p.breathPhase += p.breathFreq
         const breath = 0.6 + 0.4 * Math.sin(p.breathPhase)
         let opacity = p.baseOpacity * breath
         if (opacity < 0.2) opacity = 0.2
         else if (opacity > 0.7) opacity = 0.7
 
+        // Draw particle
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
         ctx.fillStyle = `rgba(93, 228, 199, ${opacity})`
         ctx.fill()
       }
 
-      for (let i = 0; i < particles.length; i++) {
-        const a = particles[i]
-        for (let j = i + 1; j < particles.length; j++) {
-          const b = particles[j]
-          const dx = a.x - b.x
-          const dy = a.y - b.y
-          const dist = Math.hypot(dx, dy)
-          if (dist < LINK_DISTANCE) {
-            const alpha = (1 - dist / LINK_DISTANCE) * LINK_MAX_ALPHA
-            ctx.strokeStyle = `rgba(93, 228, 199, ${alpha})`
-            ctx.lineWidth = 1
-            ctx.beginPath()
-            ctx.moveTo(a.x, a.y)
-            ctx.lineTo(b.x, b.y)
-            ctx.stroke()
+      // Draw connection lines (desktop only)
+      if (linksEnabled) {
+        for (let i = 0; i < particles.length; i++) {
+          const a = particles[i]
+          for (let j = i + 1; j < particles.length; j++) {
+            const b = particles[j]
+            const dx = a.x - b.x
+            const dy = a.y - b.y
+            const dist = Math.hypot(dx, dy)
+            if (dist < LINK_DISTANCE) {
+              const alpha = (1 - dist / LINK_DISTANCE) * LINK_MAX_ALPHA
+              ctx.strokeStyle = `rgba(93, 228, 199, ${alpha})`
+              ctx.lineWidth = 1
+              ctx.beginPath()
+              ctx.moveTo(a.x, a.y)
+              ctx.lineTo(b.x, b.y)
+              ctx.stroke()
+            }
           }
         }
       }
