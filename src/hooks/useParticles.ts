@@ -16,7 +16,7 @@ const DESKTOP_PARTICLE_COUNT = 120
 const DESKTOP_LINK_ENABLED = true
 
 // Mobile config (< 768px)
-const MOBILE_PARTICLE_COUNT = 40
+const MOBILE_PARTICLE_COUNT = 10
 const MOBILE_LINK_ENABLED = false
 const MOBILE_MAX_DPR = 2
 
