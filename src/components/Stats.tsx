@@ -9,7 +9,7 @@ export default function Stats() {
   ]
 
   return (
-    <section className="py-16 px-6 bg-[var(--brand-navy)] border-y border-[var(--border-mint)]">
+    <section className="py-16 px-6 bg-[var(--bg-base)] border-y-2 border-[var(--border-mint)]">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {stats.map((stat, index) => (
@@ -25,7 +25,7 @@ export default function Stats() {
               }}
               className="text-center"
             >
-              <div className="text-3xl md:text-4xl font-bold text-[var(--brand-mint)] mb-2">
+              <div className="text-3xl md:text-4xl font-mono font-bold text-[var(--brand-mint)] mb-2">
                 {stat.number}
               </div>
               <div className="text-sm text-[var(--text-muted)]">{stat.label}</div>
