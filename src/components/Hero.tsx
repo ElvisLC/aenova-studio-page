@@ -11,11 +11,11 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <h1 className="text-white mb-6">
-              ¿Cansado de coordinar<br />
+            <h1 className="text-white mb-6 max-w-3xl mx-auto">
+              ¿Cansado de coordinar{' '}
               <span className="text-[var(--brand-mint)]">
                 diseñadores y desarrolladores
-              </span><br />
+              </span>{' '}
               que no se hablan?
             </h1>
           </motion.div>

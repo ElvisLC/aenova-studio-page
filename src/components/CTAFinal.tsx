@@ -50,15 +50,9 @@ export default function CTAFinal() {
             </a>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 pt-6">
-            <div className="flex items-center gap-2 text-sm text-[var(--text-muted)]">
-              <Clock className="w-4 h-4 text-[var(--brand-mint)]" />
-              <span>Respuesta en menos de 24 horas</span>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-[var(--text-muted)]">
-              <Clock className="w-4 h-4 text-[var(--brand-mint)]" />
-              <span>Primer entregable en 21 días</span>
-            </div>
+          <div className="flex items-center justify-center gap-2 text-sm text-[var(--text-muted)] pt-6">
+            <Clock className="w-4 h-4 text-[var(--brand-mint)]" />
+            <span>Respuesta en menos de 24 horas</span>
           </div>
         </motion.div>
       </div>

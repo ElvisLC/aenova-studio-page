@@ -4,14 +4,13 @@ export default function Stats() {
   const stats = [
     { number: '+20', label: 'Proyectos entregados' },
     { number: '5+', label: 'Países alcanzados' },
-    { number: '100%', label: 'Proyectos con diseño y código propios' },
-    { number: '<21 días', label: 'Tiempo promedio de primer entregable' },
+    { number: '100%', label: 'Diseño y desarrollo propios' },
   ]
 
   return (
     <section className="py-16 px-6 bg-[var(--bg-base)] border-y-2 border-[var(--border-mint)]">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-3 gap-8 md:gap-12 max-w-3xl mx-auto">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
