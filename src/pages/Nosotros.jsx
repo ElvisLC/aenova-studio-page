@@ -24,7 +24,7 @@ export default function Nosotros() {
         <meta name="description" content="Conoce al equipo detrás de Aenova Studio: un mismo equipo para desarrollo y diseño, trabajando desde Caracas, Venezuela para clientes en toda la región." />
         <link rel="canonical" href="https://aenovastudio.com/nosotros" />
       </Helmet>
-      <section className="container" style={{ padding: 'clamp(48px,8vw,88px) 0 clamp(24px,4vw,48px)' }}>
+      <section className="container" style={{ paddingTop: 'clamp(48px,8vw,88px)', paddingBottom: 'clamp(24px,4vw,48px)' }}>
         <span className="tag tag-accent-2" style={{ fontSize: 12, padding: '5px 14px' }}>Nosotros</span>
         <h1 style={{ fontSize: 'clamp(34px,5vw,54px)', maxWidth: '16ch', margin: '20px 0 18px' }}>Dos oficios, un mismo equipo</h1>
         <p style={{ fontSize: 17, opacity: 0.8, maxWidth: '58ch', lineHeight: 1.6 }}>
@@ -35,7 +35,7 @@ export default function Nosotros() {
         </p>
       </section>
 
-      <section className="container" style={{ padding: '16px 0 60px', display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1fr)', gap: 'clamp(24px,5vw,56px)', alignItems: 'center' }}>
+      <section className="container about-split" style={{ paddingTop: 16, paddingBottom: 60, display: 'grid', gap: 'clamp(24px,5vw,56px)', alignItems: 'center' }}>
         <ImagePlaceholder label="Foto del equipo" ratio="5/4" style={{ filter: 'saturate(0.6) contrast(0.85) brightness(1.1)' }} />
         <div style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
           <div className="card elev-sm">

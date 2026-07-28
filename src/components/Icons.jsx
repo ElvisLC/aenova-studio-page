@@ -56,3 +56,18 @@ export const IconPhone = (p) => (
     <path d="M4 5a1 1 0 0 1 1-1h3l2 5-2 1.5a11 11 0 0 0 5.5 5.5L15 15l5 2v3a1 1 0 0 1-1 1A16 16 0 0 1 4 6V5z" />
   </svg>
 );
+export const IconPlay = (p) => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none" {...p}>
+    <path d="M7 4.5v15l13-7.5-13-7.5z" />
+  </svg>
+);
+export const IconClose = (p) => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" {...p}>
+    <path d="M5 5l14 14M19 5L5 19" />
+  </svg>
+);
+export const IconMenu = (p) => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" {...p}>
+    <path d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+);

@@ -14,7 +14,7 @@ const projects = [
 
 export default function Diseno() {
   return (
-    <main className="container" style={{ padding: 'clamp(48px,8vw,88px) 0 clamp(56px,8vw,96px)' }}>
+    <main className="container" style={{ paddingTop: 'clamp(48px,8vw,88px)', paddingBottom: 'clamp(56px,8vw,96px)' }}>
       <Helmet>
         <title>Diseño de Marca y Branding — Aenova Studio</title>
         <meta name="description" content="Identidad visual, branding, logos y diseño editorial con carácter propio. Explora el portafolio de diseño de Aenova Studio." />

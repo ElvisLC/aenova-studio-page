@@ -5,7 +5,7 @@ import { IconWhatsapp, IconMail, IconGlobe, IconPhone } from '../components/Icon
 
 export default function Contacto() {
   return (
-    <main className="container" style={{ padding: 'clamp(48px,8vw,88px) 0 clamp(56px,8vw,96px)' }}>
+    <main className="container" style={{ paddingTop: 'clamp(48px,8vw,88px)', paddingBottom: 'clamp(56px,8vw,96px)' }}>
       <Helmet>
         <title>Contacto — Aenova Studio</title>
         <meta name="description" content="Escríbenos por WhatsApp, llama o envía un correo. Aenova Studio responde en menos de 24 horas para cotizar tu proyecto de desarrollo o diseño." />

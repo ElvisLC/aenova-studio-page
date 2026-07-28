@@ -14,7 +14,7 @@ const items = [
 
 export default function Servicios() {
   return (
-    <main className="container" style={{ padding: 'clamp(48px,8vw,88px) 0 clamp(56px,8vw,96px)' }}>
+    <main className="container" style={{ paddingTop: 'clamp(48px,8vw,88px)', paddingBottom: 'clamp(56px,8vw,96px)' }}>
       <Helmet>
         <title>Servicios de Desarrollo y Diseño — Aenova Studio</title>
         <meta name="description" content="Automatizaciones, aplicaciones web, landing pages, diseño de marca y más. Descubre todo lo que Aenova Studio puede hacer crecer tu negocio." />
@@ -27,10 +27,10 @@ export default function Servicios() {
       </p>
 
       {items.map(({ Icon, bg, fg, title, desc }, i) => (
-        <div key={title} style={{ display: 'grid', gridTemplateColumns: 'minmax(240px,320px) minmax(0,1fr)', gap: 24, padding: '28px 0', borderBottom: i < items.length - 1 ? '1px solid var(--color-divider)' : 'none' }}>
+        <div key={title} className="service-row" style={{ display: 'grid', gap: 24, padding: '28px 0', borderBottom: i < items.length - 1 ? '1px solid var(--color-divider)' : 'none' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             <div className="icon-circle" style={{ background: bg, color: fg }}><Icon /></div>
-            <h3 style={{ margin: 0, fontSize: 22 }}>{title}</h3>
+            <h3 style={{ margin: 0, fontSize: 'clamp(18px,4vw,22px)' }}>{title}</h3>
           </div>
           <p style={{ margin: 0, fontSize: 15, opacity: 0.78, maxWidth: '58ch', lineHeight: 1.6 }}>{desc}</p>
         </div>

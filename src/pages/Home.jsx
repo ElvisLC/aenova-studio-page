@@ -43,7 +43,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container grid-4" style={{ padding: '20px 0 60px' }}>
+      <section className="container grid-4" style={{ paddingTop: 20, paddingBottom: 60 }}>
         {[
           ['1', 'Descubrimiento', 'Entendemos tu negocio, objetivos y usuarios antes de proponer nada.', 'var(--color-accent-100)', 'var(--color-accent-700)'],
           ['2', 'Diseño', 'Definimos identidad, UX y UI — cada decisión respaldada por un porqué.', 'var(--color-accent-2-100)', 'var(--color-accent-2-700)'],
@@ -58,7 +58,7 @@ export default function Home() {
         ))}
       </section>
 
-      <section className="container" style={{ padding: '24px 0 48px' }}>
+      <section className="container" style={{ paddingTop: 24, paddingBottom: 48 }}>
         <h2 style={{ fontSize: 'clamp(26px,3vw,34px)', marginBottom: 8 }}>Lo que hacemos</h2>
         <p style={{ opacity: 0.75, fontSize: 15, marginBottom: 32, maxWidth: '56ch' }}>Cinco disciplinas, un mismo equipo — sin traducciones perdidas entre diseño y código.</p>
         <div className="grid-auto-md">
@@ -72,7 +72,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container" style={{ padding: '40px 0 72px' }}>
+      <section className="container" style={{ paddingTop: 40, paddingBottom: 72 }}>
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, marginBottom: 28 }}>
           <h2 style={{ fontSize: 'clamp(26px,3vw,34px)', margin: 0 }}>Trabajo destacado</h2>
           <Link to="/desarrollo" className="btn btn-ghost">Ver todo el portfolio →</Link>
@@ -89,14 +89,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container" style={{ padding: '24px 0 40px' }}>
+      <section className="container" style={{ paddingTop: 24, paddingBottom: 40 }}>
         <p style={{ textAlign: 'center', fontSize: 12, letterSpacing: '.08em', textTransform: 'uppercase', opacity: 0.55, marginBottom: 20 }}>Marcas con las que trabajamos</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 'clamp(24px,5vw,56px)', fontFamily: 'var(--font-heading)', fontSize: 16, opacity: 0.5 }}>
           <span>NIMBUS</span><span>LUMEN</span><span>VAIA</span><span>RUTAS VERDES</span><span>KAPPA FIT</span><span>SELLO NORTE</span>
         </div>
       </section>
 
-      <section className="container" style={{ padding: '40px 0 72px' }}>
+      <section className="container" style={{ paddingTop: 40, paddingBottom: 72 }}>
         <blockquote style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(22px,2.6vw,30px)', lineHeight: 1.4, maxWidth: '34ch', margin: 0 }}>
           "Aenova entendió el negocio antes de escribir una línea de código. Automatizamos gran parte de nuestro proceso de ventas en tres semanas."
         </blockquote>
