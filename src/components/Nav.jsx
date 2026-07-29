@@ -34,7 +34,7 @@ export default function Nav() {
     <nav className="nav">
       <NavLink to={ROUTES[0][locale]} className="nav-brand">
         <img src="/aenova-logo.png" alt="Aenova Studio" width="38" height="38" />
-        <span>AENOVA <span style={{ color: '#081F3F' }}>STUDIO</span></span>
+        <span style={{ color: 'var(--color-brand)' }}>AENOVA STUDIO</span>
       </NavLink>
       {links.map((l) => (
         <NavLink key={l.key} to={l.to} end={l.end} className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
