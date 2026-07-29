@@ -4,8 +4,8 @@ import ImagePlaceholder from '../components/ImagePlaceholder.jsx';
 
 const team = [
   { id: 'team-1', name: 'Elvis La Cruz', role: 'Fundador & Developer' },
-  { id: 'team-2', name: 'Isael Guillarte', role: 'Developer' },
-  { id: 'team-3', name: 'Arianny Acosta', role: 'Diseñadora Gráfica' }
+  { id: 'team-2', name: 'Isael Guillarte', role: 'Fundador & Developer' },
+  { id: 'team-3', name: 'Arianny Acosta', role: 'Fundadora & Diseñadora Gráfica' }
 ];
 
 const values = [
