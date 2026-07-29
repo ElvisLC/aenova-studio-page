@@ -7,6 +7,7 @@ const projects = [
   {
     id: 'dev-7',
     title: 'Panel Operativo — Agencia TikTok Live',
+    alt: 'Vista previa del panel operativo web con tareas Kanban desarrollado para una agencia de TikTok Live',
     tags: ['Laravel', 'React', 'PWA'],
     desc: 'Sistema interno con roles, tareas Kanban con reporte obligatorio de cierre, objetivos semanales, horarios de equipo y auditoría, instalable como PWA.',
     type: 'video',
@@ -39,7 +40,7 @@ export default function Desarrollo() {
               type={p.type}
               src={p.image}
               poster={p.poster}
-              alt={p.title}
+              alt={p.alt}
               width={p.imageW}
               height={p.imageH}
               ratio="16/10"

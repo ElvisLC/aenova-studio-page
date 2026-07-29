@@ -18,6 +18,7 @@ const featured = [
   {
     id: 'kairoz-agency',
     title: 'Panel Operativo — Agencia TikTok Live',
+    alt: 'Vista previa del panel operativo web con tareas Kanban desarrollado para una agencia de TikTok Live',
     tag: 'Desarrollo',
     tagClass: 'tag-accent',
     tags: ['Laravel', 'React', 'PWA'],
@@ -41,8 +42,8 @@ export default function Home() {
       />
       <section className="hero container">
         <span className="tag tag-accent" style={{ fontSize: 12, padding: '5px 14px' }}>Estudio de desarrollo & diseño</span>
-        <h1 style={{ fontSize: 'clamp(38px,6vw,68px)', lineHeight: 1.05, maxWidth: '15ch', margin: '20px 0 22px' }}>
-          Construimos productos digitales con carácter
+        <h1 style={{ fontSize: 'clamp(38px,6vw,68px)', lineHeight: 1.05, maxWidth: '17ch', margin: '20px 0 22px' }}>
+          Desarrollo Web y Diseño de Marca en Caracas
         </h1>
         <p style={{ fontSize: 18, lineHeight: 1.6, maxWidth: '52ch', opacity: 0.82, marginBottom: 28 }}>
           Automatizaciones, aplicaciones web, landing pages y diseño de marca — bajo un mismo equipo, de punta a punta.
@@ -94,7 +95,7 @@ export default function Home() {
                 type={f.type}
                 src={f.image}
                 poster={f.poster}
-                alt={f.title}
+                alt={f.alt}
                 width={f.imageW}
                 height={f.imageH}
                 ratio="16/10"

@@ -4,12 +4,12 @@ import { WA_LINK, SITE_URL } from '../constants.js';
 import ProjectMedia from '../components/ProjectMedia.jsx';
 
 const projects = [
-  { id: 'des-1', title: 'Identidad Café Lumen', tag: 'Branding', ratio: '4/3', desc: 'Logo, paleta y packaging para una cadena de cafeterías.', image: '/proyectos/diseno/cafe-lumen.webp' },
-  { id: 'des-2', title: 'Serie editorial Rutas Verdes', tag: 'Diseño gráfico', ratio: '4/3', desc: 'Afiches y piezas para una campaña de movilidad sostenible.', image: '/proyectos/diseno/rutas-verdes.webp' },
-  { id: 'des-3', title: 'Naming & logo Kappa Fit', tag: 'Logo', ratio: '1/1', desc: 'Marca deportiva construida desde cero.', image: '/proyectos/diseno/kappa-fit.webp' },
-  { id: 'des-4', title: 'Kit de redes Sello Norte', tag: 'Diseño gráfico', ratio: '4/3', desc: 'Plantillas y sistema visual para comunicación digital.', image: '/proyectos/diseno/sello-norte.webp' },
-  { id: 'des-5', title: 'Papelería Nimbus', tag: 'Branding', ratio: '4/3', desc: 'Tarjetería y papelería corporativa.', image: '/proyectos/diseno/nimbus-stationery.webp' },
-  { id: 'des-6', title: 'Packaging Vaia', tag: 'Packaging', ratio: '1/1', desc: 'Empaque de producto para e-commerce.', image: '/proyectos/diseno/vaia-packaging.webp' }
+  { id: 'des-1', title: 'Identidad Café Lumen', alt: 'Mockup de logo, paleta de color y packaging de la identidad de marca para la cafetería Café Lumen', tag: 'Branding', ratio: '4/3', desc: 'Logo, paleta y packaging para una cadena de cafeterías.', image: '/proyectos/diseno/cafe-lumen.webp' },
+  { id: 'des-2', title: 'Serie editorial Rutas Verdes', alt: 'Afiches de diseño gráfico y editorial para la campaña de movilidad sostenible Rutas Verdes', tag: 'Diseño gráfico', ratio: '4/3', desc: 'Afiches y piezas para una campaña de movilidad sostenible.', image: '/proyectos/diseno/rutas-verdes.webp' },
+  { id: 'des-3', title: 'Naming & logo Kappa Fit', alt: 'Logo y naming de marca deportiva para Kappa Fit', tag: 'Logo', ratio: '1/1', desc: 'Marca deportiva construida desde cero.', image: '/proyectos/diseno/kappa-fit.webp' },
+  { id: 'des-4', title: 'Kit de redes Sello Norte', alt: 'Plantillas de diseño gráfico para redes sociales del sistema visual Sello Norte', tag: 'Diseño gráfico', ratio: '4/3', desc: 'Plantillas y sistema visual para comunicación digital.', image: '/proyectos/diseno/sello-norte.webp' },
+  { id: 'des-5', title: 'Papelería Nimbus', alt: 'Tarjetería y papelería corporativa con branding de marca para Nimbus', tag: 'Branding', ratio: '4/3', desc: 'Tarjetería y papelería corporativa.', image: '/proyectos/diseno/nimbus-stationery.webp' },
+  { id: 'des-6', title: 'Packaging Vaia', alt: 'Diseño de packaging de producto para e-commerce de la marca Vaia', tag: 'Packaging', ratio: '1/1', desc: 'Empaque de producto para e-commerce.', image: '/proyectos/diseno/vaia-packaging.webp' }
 ];
 
 export default function Diseno() {
@@ -30,7 +30,7 @@ export default function Diseno() {
       <div className="grid-auto-lg">
         {projects.map((p) => (
           <div key={p.id} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-            <ProjectMedia src={p.image} alt={p.title} ratio={p.ratio} />
+            <ProjectMedia src={p.image} alt={p.alt} ratio={p.ratio} />
             <span className="tag tag-accent-2">{p.tag}</span>
             <p style={{ fontFamily: 'var(--font-heading)', fontSize: 18 }}>{p.title}</p>
             <p style={{ fontSize: 13.5, opacity: 0.72 }}>{p.desc}</p>
