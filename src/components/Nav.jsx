@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { WA_LINK } from '../constants.js';
+import { getWaLink } from '../constants.js';
+import { useLocale, useT } from '../i18n/LocaleContext.jsx';
+import { ROUTES } from '../i18n/routes.js';
+import common from '../i18n/dictionaries/common.js';
 import { IconMenu, IconClose } from './Icons.jsx';
-
-const links = [
-  { to: '/', label: 'Inicio', end: true },
-  { to: '/nosotros', label: 'Nosotros' },
-  { to: '/servicios', label: 'Servicios' },
-  { to: '/desarrollo', label: 'Desarrollo' },
-  { to: '/diseno', label: 'Diseño' },
-  { to: '/contacto', label: 'Contacto' }
-];
+import LanguageToggle from './LanguageToggle.jsx';
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [closing, setClosing] = useState(false);
+  const locale = useLocale();
+  const t = useT(common);
+  const waLink = getWaLink(locale);
+
+  const links = ROUTES.map((r) => ({ key: r.key, to: r[locale], label: t.nav[r.key], end: r.key === 'home' }));
 
   const closeMenu = () => {
     setClosing(true);
@@ -32,26 +32,23 @@ export default function Nav() {
 
   return (
     <nav className="nav">
-      <NavLink to="/" className="nav-brand">
+      <NavLink to={ROUTES[0][locale]} className="nav-brand">
         <img src="/aenova-logo.png" alt="Aenova Studio" width="38" height="38" />
         <span>AENOVA <span style={{ color: '#081F3F' }}>STUDIO</span></span>
       </NavLink>
       {links.map((l) => (
-        <NavLink key={l.to} to={l.to} end={l.end} className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
+        <NavLink key={l.key} to={l.to} end={l.end} className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
           {l.label}
         </NavLink>
       ))}
-      <div className="nav-lang">
-        <span className="es">ES</span><span style={{ opacity: 0.35 }}>/</span>
-        <span className="en" title="Próximamente">EN</span>
-      </div>
-      <a className="btn brand-cta nav-cta" href={WA_LINK} target="_blank" rel="noopener noreferrer" style={{ marginLeft: 14 }}>
-        Hablemos
+      <LanguageToggle />
+      <a className="btn brand-cta nav-cta" href={waLink} target="_blank" rel="noopener noreferrer" style={{ marginLeft: 14 }}>
+        {t.cta}
       </a>
       <button
         className="nav-toggle"
         onClick={() => (menuOpen ? closeMenu() : setMenuOpen(true))}
-        aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+        aria-label={menuOpen ? t.menuClose : t.menuOpen}
         aria-expanded={menuOpen}
       >
         {menuOpen ? <IconClose /> : <IconMenu />}
@@ -64,7 +61,7 @@ export default function Nav() {
         >
           {links.map((l) => (
             <NavLink
-              key={l.to}
+              key={l.key}
               to={l.to}
               end={l.end}
               className={({ isActive }) => (isActive ? 'active' : '')}
@@ -73,15 +70,16 @@ export default function Nav() {
               {l.label}
             </NavLink>
           ))}
+          <LanguageToggle onNavigate={closeMenu} />
           <a
             className="btn brand-cta"
-            href={WA_LINK}
+            href={waLink}
             target="_blank"
             rel="noopener noreferrer"
             style={{ marginTop: 10, alignSelf: 'flex-start' }}
             onClick={closeMenu}
           >
-            Hablemos
+            {t.cta}
           </a>
         </div>
       )}

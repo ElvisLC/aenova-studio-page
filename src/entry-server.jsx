@@ -20,6 +20,7 @@ export function render(url) {
     helmet.title.toString() +
     helmet.meta.toString() +
     helmet.link.toString();
+  const htmlAttrs = helmet.htmlAttributes.toString();
 
-  return { appHtml, headTags };
+  return { appHtml, headTags, htmlAttrs };
 }
