@@ -4,7 +4,7 @@ import { WA_LINK } from '../constants.js';
 import { IconMenu, IconClose } from './Icons.jsx';
 
 const links = [
-  { to: '/', label: 'Home', end: true },
+  { to: '/', label: 'Inicio', end: true },
   { to: '/nosotros', label: 'Nosotros' },
   { to: '/servicios', label: 'Servicios' },
   { to: '/desarrollo', label: 'Desarrollo' },
