@@ -46,7 +46,7 @@ export default function Diseno() {
 
       <div className="cta-patch" style={{ background: 'var(--color-accent-100)' }}>
         <div>
-          <h3 style={{ fontSize: 'clamp(20px,2.4vw,26px)' }}>{t.cta.title}</h3>
+          <h2 style={{ fontSize: 'clamp(20px,2.4vw,26px)' }}>{t.cta.title}</h2>
           <p style={{ opacity: 0.78, fontSize: 15 }}>{t.cta.body}</p>
         </div>
         <a className="btn brand-cta" href={waLink} target="_blank" rel="noopener noreferrer">{t.cta.button}</a>

@@ -33,7 +33,7 @@ export default function Nav() {
   return (
     <nav className="nav">
       <NavLink to={ROUTES[0][locale]} className="nav-brand">
-        <img src="/aenova-logo.png" alt="Aenova Studio" width="38" height="38" />
+        <img src="/aenova-logo-icon.webp" alt="" width="38" height="38" fetchpriority="high" />
         <span style={{ color: 'var(--color-brand)' }}>AENOVA STUDIO</span>
       </NavLink>
       {links.map((l) => (

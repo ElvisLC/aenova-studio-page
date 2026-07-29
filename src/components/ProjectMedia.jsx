@@ -51,7 +51,7 @@ export default function ProjectMedia({ type = 'image', src, poster, alt, width, 
           onMouseLeave={pausePreview}
           onClick={handleContainerClick}
         >
-          <video ref={previewRef} src={src} poster={poster} muted loop playsInline preload="metadata" width={width} height={height} aria-label={alt} />
+          <video ref={previewRef} src={src} poster={poster} muted loop playsInline preload="none" width={width} height={height} aria-label={alt} />
           <span className="project-media-play" onClick={handlePlayButtonClick}><IconPlay /></span>
         </div>
 

@@ -43,7 +43,7 @@ export default function Nosotros() {
         <div className="grid-auto-sm">
           {t.values.map((v) => (
             <div key={v.title}>
-              <h4 style={{ marginBottom: 6 }}>{v.title}</h4>
+              <h3 style={{ marginBottom: 6, fontSize: 16 }}>{v.title}</h3>
               <p style={{ fontSize: 13.5, opacity: 0.75 }}>{v.desc}</p>
             </div>
           ))}

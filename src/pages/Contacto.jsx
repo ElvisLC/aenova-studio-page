@@ -36,7 +36,7 @@ export default function Contacto() {
           <IconGlobe style={{ color: 'var(--color-accent-700)' }} />
           <p className="card-title">{t.social.title}</p>
           <p className="card-body" style={{ opacity: 1 }}>{t.social.body}</p>
-          <p style={{ fontSize: 13, opacity: 0.6 }}>{t.social.note}</p>
+          <p style={{ fontSize: 13, opacity: 0.72 }}>{t.social.note}</p>
         </div>
         <div className="card elev-sm" style={{ gap: 16 }}>
           <IconPhone style={{ color: 'var(--color-accent-700)' }} />

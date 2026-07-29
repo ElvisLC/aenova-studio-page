@@ -32,7 +32,7 @@ export default function Servicios() {
         <div key={key} className="service-row" style={{ display: 'grid', gap: 24, padding: '28px 0', borderBottom: i < itemsStructure.length - 1 ? '1px solid var(--color-divider)' : 'none' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             <div className="icon-circle" style={{ background: bg, color: fg }}><Icon /></div>
-            <h3 style={{ margin: 0, fontSize: 'clamp(18px,4vw,22px)' }}>{t.items[key].title}</h3>
+            <h2 style={{ margin: 0, fontSize: 'clamp(18px,4vw,22px)' }}>{t.items[key].title}</h2>
           </div>
           <p style={{ margin: 0, fontSize: 15, opacity: 0.78, maxWidth: '58ch', lineHeight: 1.6 }}>{t.items[key].desc}</p>
         </div>

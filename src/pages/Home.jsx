@@ -67,7 +67,7 @@ export default function Home() {
         {stepsStructure.map((s, i) => (
           <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             <div style={{ width: 44, height: 44, borderRadius: '50%', background: s.bg, color: s.fg, display: 'grid', placeItems: 'center', fontFamily: 'var(--font-heading)', fontSize: 17 }}>{i + 1}</div>
-            <h4 style={{ margin: 0 }}>{t.steps[i].title}</h4>
+            <h2 style={{ margin: 0, fontSize: 17 }}>{t.steps[i].title}</h2>
             <p style={{ fontSize: 13.5, opacity: 0.75 }}>{t.steps[i].desc}</p>
           </div>
         ))}
@@ -116,8 +116,8 @@ export default function Home() {
       </section>
 
       <section className="container" style={{ paddingTop: 24, paddingBottom: 40 }}>
-        <p style={{ textAlign: 'center', fontSize: 12, letterSpacing: '.08em', textTransform: 'uppercase', opacity: 0.55, marginBottom: 20 }}>{t.brandsLabel}</p>
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 'clamp(24px,5vw,56px)', fontFamily: 'var(--font-heading)', fontSize: 16, opacity: 0.5 }}>
+        <p style={{ textAlign: 'center', fontSize: 12, letterSpacing: '.08em', textTransform: 'uppercase', opacity: 0.72, marginBottom: 20 }}>{t.brandsLabel}</p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 'clamp(24px,5vw,56px)', fontFamily: 'var(--font-heading)', fontSize: 16, opacity: 0.72 }}>
           {brands.map((b) => <span key={b}>{b}</span>)}
         </div>
       </section>

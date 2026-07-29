@@ -11,10 +11,10 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-        <img src="/aenova-logo.png" alt="Aenova Studio" width="32" height="32" style={{ width: 32, height: 32, borderRadius: '50%', objectFit: 'cover' }} />
+        <img src="/aenova-logo-icon.webp" alt="Aenova Studio" width="32" height="32" style={{ width: 32, height: 32, borderRadius: '50%', objectFit: 'cover' }} />
         <div>
           <p style={{ fontFamily: 'var(--font-heading)', fontSize: 15 }}>Aenova Studio</p>
-          <p style={{ fontSize: 12, opacity: 0.6, marginTop: 2 }}>{t.footerTagline}</p>
+          <p style={{ fontSize: 12, opacity: 0.72, marginTop: 2 }}>{t.footerTagline}</p>
         </div>
       </div>
       <div className="footer-links">
@@ -22,7 +22,7 @@ export default function Footer() {
           <Link key={r.key} to={r[locale]}>{t.nav[r.key]}</Link>
         ))}
       </div>
-      <p style={{ fontSize: 12, opacity: 0.55 }}>{t.copyright}</p>
+      <p style={{ fontSize: 12, opacity: 0.72 }}>{t.copyright}</p>
     </footer>
   );
 }
