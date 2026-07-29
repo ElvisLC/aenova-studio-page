@@ -1,16 +1,16 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo.jsx';
 import { WA_LINK } from '../constants.js';
 import { IconWhatsapp, IconMail, IconGlobe, IconPhone } from '../components/Icons.jsx';
 
 export default function Contacto() {
   return (
     <main className="container" style={{ paddingTop: 'clamp(48px,8vw,88px)', paddingBottom: 'clamp(56px,8vw,96px)' }}>
-      <Helmet>
-        <title>Contacto — Aenova Studio</title>
-        <meta name="description" content="Escríbenos por WhatsApp, llama o envía un correo. Aenova Studio responde en menos de 24 horas para cotizar tu proyecto de desarrollo o diseño." />
-        <link rel="canonical" href="https://aenovastudio.com/contacto" />
-      </Helmet>
+      <Seo
+        title="Contacto — Aenova Studio"
+        description="Escríbenos por WhatsApp, llama o envía un correo. Aenova Studio responde en menos de 24 horas para cotizar tu proyecto de desarrollo o diseño."
+        path="/contacto"
+      />
       <span className="tag tag-accent" style={{ fontSize: 12, padding: '5px 14px' }}>Contacto</span>
       <h1 style={{ fontSize: 'clamp(34px,5vw,54px)', maxWidth: '16ch', margin: '20px 0 18px' }}>Hablemos de tu proyecto</h1>
       <p style={{ fontSize: 17, opacity: 0.8, maxWidth: '58ch', lineHeight: 1.6, marginBottom: 44 }}>

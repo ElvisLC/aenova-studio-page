@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo.jsx';
 import ImagePlaceholder from '../components/ImagePlaceholder.jsx';
 
 const team = [
@@ -19,11 +19,11 @@ const values = [
 export default function Nosotros() {
   return (
     <main>
-      <Helmet>
-        <title>Nosotros — Aenova Studio</title>
-        <meta name="description" content="Conoce al equipo detrás de Aenova Studio: un mismo equipo para desarrollo y diseño, trabajando desde Caracas, Venezuela para clientes en toda la región." />
-        <link rel="canonical" href="https://aenovastudio.com/nosotros" />
-      </Helmet>
+      <Seo
+        title="Nosotros — Aenova Studio"
+        description="Conoce al equipo detrás de Aenova Studio: un mismo equipo para desarrollo y diseño, trabajando desde Caracas, Venezuela para clientes en toda la región."
+        path="/nosotros"
+      />
       <section className="container" style={{ paddingTop: 'clamp(48px,8vw,88px)', paddingBottom: 'clamp(24px,4vw,48px)' }}>
         <span className="tag tag-accent-2" style={{ fontSize: 12, padding: '5px 14px' }}>Nosotros</span>
         <h1 style={{ fontSize: 'clamp(34px,5vw,54px)', maxWidth: '16ch', margin: '20px 0 18px' }}>Dos oficios, un mismo equipo</h1>

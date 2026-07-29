@@ -1,25 +1,26 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { WA_LINK } from '../constants.js';
+import Seo from '../components/Seo.jsx';
+import { WA_LINK, SITE_URL } from '../constants.js';
 import ProjectMedia from '../components/ProjectMedia.jsx';
 
 const projects = [
-  { id: 'des-1', title: 'Identidad Café Lumen', tag: 'Branding', ratio: '4/3', desc: 'Logo, paleta y packaging para una cadena de cafeterías.', image: '/proyectos/diseno/cafe-lumen.png' },
-  { id: 'des-2', title: 'Serie editorial Rutas Verdes', tag: 'Diseño gráfico', ratio: '4/3', desc: 'Afiches y piezas para una campaña de movilidad sostenible.', image: '/proyectos/diseno/rutas-verdes.png' },
-  { id: 'des-3', title: 'Naming & logo Kappa Fit', tag: 'Logo', ratio: '1/1', desc: 'Marca deportiva construida desde cero.', image: '/proyectos/diseno/kappa-fit.png' },
-  { id: 'des-4', title: 'Kit de redes Sello Norte', tag: 'Diseño gráfico', ratio: '4/3', desc: 'Plantillas y sistema visual para comunicación digital.', image: '/proyectos/diseno/sello-norte.png' },
-  { id: 'des-5', title: 'Papelería Nimbus', tag: 'Branding', ratio: '4/3', desc: 'Tarjetería y papelería corporativa.', image: '/proyectos/diseno/nimbus-stationery.png' },
-  { id: 'des-6', title: 'Packaging Vaia', tag: 'Packaging', ratio: '1/1', desc: 'Empaque de producto para e-commerce.', image: '/proyectos/diseno/vaia-packaging.png' }
+  { id: 'des-1', title: 'Identidad Café Lumen', tag: 'Branding', ratio: '4/3', desc: 'Logo, paleta y packaging para una cadena de cafeterías.', image: '/proyectos/diseno/cafe-lumen.webp' },
+  { id: 'des-2', title: 'Serie editorial Rutas Verdes', tag: 'Diseño gráfico', ratio: '4/3', desc: 'Afiches y piezas para una campaña de movilidad sostenible.', image: '/proyectos/diseno/rutas-verdes.webp' },
+  { id: 'des-3', title: 'Naming & logo Kappa Fit', tag: 'Logo', ratio: '1/1', desc: 'Marca deportiva construida desde cero.', image: '/proyectos/diseno/kappa-fit.webp' },
+  { id: 'des-4', title: 'Kit de redes Sello Norte', tag: 'Diseño gráfico', ratio: '4/3', desc: 'Plantillas y sistema visual para comunicación digital.', image: '/proyectos/diseno/sello-norte.webp' },
+  { id: 'des-5', title: 'Papelería Nimbus', tag: 'Branding', ratio: '4/3', desc: 'Tarjetería y papelería corporativa.', image: '/proyectos/diseno/nimbus-stationery.webp' },
+  { id: 'des-6', title: 'Packaging Vaia', tag: 'Packaging', ratio: '1/1', desc: 'Empaque de producto para e-commerce.', image: '/proyectos/diseno/vaia-packaging.webp' }
 ];
 
 export default function Diseno() {
   return (
     <main className="container" style={{ paddingTop: 'clamp(48px,8vw,88px)', paddingBottom: 'clamp(56px,8vw,96px)' }}>
-      <Helmet>
-        <title>Diseño de Marca y Branding — Aenova Studio</title>
-        <meta name="description" content="Identidad visual, branding, logos y diseño editorial con carácter propio. Explora el portafolio de diseño de Aenova Studio." />
-        <link rel="canonical" href="https://aenovastudio.com/diseno" />
-      </Helmet>
+      <Seo
+        title="Diseño de Marca y Branding — Aenova Studio"
+        description="Identidad visual, branding, logos y diseño editorial con carácter propio. Explora el portafolio de diseño de Aenova Studio."
+        path="/diseno"
+        image={`${SITE_URL}/proyectos/diseno/cafe-lumen.webp`}
+      />
       <span className="tag tag-accent-2" style={{ fontSize: 12, padding: '5px 14px' }}>Diseño</span>
       <h1 style={{ fontSize: 'clamp(34px,5vw,54px)', maxWidth: '16ch', margin: '20px 0 18px' }}>Marcas con carácter propio</h1>
       <p style={{ fontSize: 17, opacity: 0.8, maxWidth: '58ch', lineHeight: 1.6, marginBottom: 44 }}>

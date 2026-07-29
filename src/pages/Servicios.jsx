@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo.jsx';
 import { WA_LINK } from '../constants.js';
 import { IconAutomation, IconCode, IconMonitor, IconPalette, IconStar, IconSearch } from '../components/Icons.jsx';
 
@@ -15,11 +15,11 @@ const items = [
 export default function Servicios() {
   return (
     <main className="container" style={{ paddingTop: 'clamp(48px,8vw,88px)', paddingBottom: 'clamp(56px,8vw,96px)' }}>
-      <Helmet>
-        <title>Servicios de Desarrollo y Diseño — Aenova Studio</title>
-        <meta name="description" content="Automatizaciones, aplicaciones web, landing pages, diseño de marca y más. Descubre todo lo que Aenova Studio puede hacer crecer tu negocio." />
-        <link rel="canonical" href="https://aenovastudio.com/servicios" />
-      </Helmet>
+      <Seo
+        title="Servicios de Desarrollo y Diseño — Aenova Studio"
+        description="Automatizaciones, aplicaciones web, landing pages, diseño de marca y más. Descubre todo lo que Aenova Studio puede hacer crecer tu negocio."
+        path="/servicios"
+      />
       <span className="tag tag-accent" style={{ fontSize: 12, padding: '5px 14px' }}>Servicios</span>
       <h1 style={{ fontSize: 'clamp(34px,5vw,54px)', maxWidth: '16ch', margin: '20px 0 18px' }}>Todo lo que tu marca necesita para crecer</h1>
       <p style={{ fontSize: 17, opacity: 0.8, maxWidth: '58ch', lineHeight: 1.6, marginBottom: 48 }}>

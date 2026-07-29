@@ -3,6 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://aenovastudio.com/</loc>
+    <lastmod>2026-07-29</lastmod>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
     <image:image>
@@ -12,26 +13,31 @@
   </url>
   <url>
     <loc>https://aenovastudio.com/nosotros</loc>
+    <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://aenovastudio.com/servicios</loc>
+    <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://aenovastudio.com/desarrollo</loc>
+    <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://aenovastudio.com/diseno</loc>
+    <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://aenovastudio.com/contacto</loc>
+    <lastmod>2026-07-29</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>

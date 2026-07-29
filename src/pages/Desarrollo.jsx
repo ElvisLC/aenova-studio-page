@@ -1,6 +1,6 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { WA_LINK } from '../constants.js';
+import Seo from '../components/Seo.jsx';
+import { WA_LINK, SITE_URL } from '../constants.js';
 import ProjectMedia from '../components/ProjectMedia.jsx';
 
 const projects = [
@@ -20,11 +20,12 @@ const projects = [
 export default function Desarrollo() {
   return (
     <main className="container" style={{ paddingTop: 'clamp(48px,8vw,88px)', paddingBottom: 'clamp(56px,8vw,96px)' }}>
-      <Helmet>
-        <title>Desarrollo Web y Automatizaciones — Aenova Studio</title>
-        <meta name="description" content="Portafolio de productos y automatizaciones en producción: CRMs, plataformas de reservas, checkouts, landing pages y más, construidos por Aenova Studio." />
-        <link rel="canonical" href="https://aenovastudio.com/desarrollo" />
-      </Helmet>
+      <Seo
+        title="Desarrollo Web y Automatizaciones — Aenova Studio"
+        description="Portafolio de productos y automatizaciones en producción: CRMs, plataformas de reservas, checkouts, landing pages y más, construidos por Aenova Studio."
+        path="/desarrollo"
+        image={`${SITE_URL}/proyectos/desarollo/kairoz-agency/screenshot-project.webp`}
+      />
       <span className="tag tag-accent" style={{ fontSize: 12, padding: '5px 14px' }}>Desarrollo</span>
       <h1 style={{ fontSize: 'clamp(34px,5vw,54px)', maxWidth: '16ch', margin: '20px 0 18px' }}>Productos y automatizaciones en producción</h1>
       <p style={{ fontSize: 17, opacity: 0.8, maxWidth: '58ch', lineHeight: 1.6, marginBottom: 44 }}>

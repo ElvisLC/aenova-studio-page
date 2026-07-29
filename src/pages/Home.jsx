@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo.jsx';
 import { WA_LINK } from '../constants.js';
 import ProjectMedia from '../components/ProjectMedia.jsx';
 import { IconAutomation, IconCode, IconMonitor, IconPalette, IconStar, IconSearch } from '../components/Icons.jsx';
@@ -34,11 +34,11 @@ const featured = [
 export default function Home() {
   return (
     <main>
-      <Helmet>
-        <title>Aenova Studio — Desarrollo y Diseño en Caracas, Venezuela</title>
-        <meta name="description" content="Aenova Studio: automatizaciones, aplicaciones web, landing pages y diseño de marca en Caracas, Venezuela. Cotiza tu proyecto por WhatsApp." />
-        <link rel="canonical" href="https://aenovastudio.com/" />
-      </Helmet>
+      <Seo
+        title="Aenova Studio — Desarrollo y Diseño en Caracas, Venezuela"
+        description="Aenova Studio: automatizaciones, aplicaciones web, landing pages y diseño de marca en Caracas, Venezuela. Cotiza tu proyecto por WhatsApp."
+        path="/"
+      />
       <section className="hero container">
         <span className="tag tag-accent" style={{ fontSize: 12, padding: '5px 14px' }}>Estudio de desarrollo & diseño</span>
         <h1 style={{ fontSize: 'clamp(38px,6vw,68px)', lineHeight: 1.05, maxWidth: '15ch', margin: '20px 0 22px' }}>
