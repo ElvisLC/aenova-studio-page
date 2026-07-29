@@ -3,10 +3,9 @@ import Seo from '../components/Seo.jsx';
 import ImagePlaceholder from '../components/ImagePlaceholder.jsx';
 
 const team = [
-  { id: 'team-1', name: 'Mateo Rivas', role: 'Fundador & Dev Lead' },
-  { id: 'team-2', name: 'Camila Ortiz', role: 'Diseñadora UX/UI' },
-  { id: 'team-3', name: 'Julián Ferreyra', role: 'Desarrollador Full-stack' },
-  { id: 'team-4', name: 'Valentina Cruz', role: 'Diseñadora Gráfica & Branding' }
+  { id: 'team-1', name: 'Elvis La Cruz', role: 'Fundador & Developer' },
+  { id: 'team-2', name: 'Isael Guillarte', role: 'Developer' },
+  { id: 'team-3', name: 'Arianny Acosta', role: 'Diseñadora Gráfica' }
 ];
 
 const values = [
