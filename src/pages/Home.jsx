@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { WA_LINK } from '../constants.js';
-import ImagePlaceholder from '../components/ImagePlaceholder.jsx';
+import ProjectMedia from '../components/ProjectMedia.jsx';
 import { IconAutomation, IconCode, IconMonitor, IconPalette, IconStar, IconSearch } from '../components/Icons.jsx';
 
 const services = [
@@ -15,10 +15,20 @@ const services = [
 ];
 
 const featured = [
-  { id: 'home-feat-1', tag: 'Desarrollo', tagClass: 'tag-accent', title: 'Nimbus CRM', desc: 'Automatización de ventas con n8n, Airtable y Slack.', to: '/desarrollo' },
-  { id: 'home-feat-2', tag: 'Diseño', tagClass: 'tag-accent-2', title: 'Identidad Café Lumen', desc: 'Branding completo para una cadena de cafeterías.', to: '/diseno' },
-  { id: 'home-feat-3', tag: 'Desarrollo', tagClass: 'tag-accent', title: 'Portal Lumen', desc: 'Plataforma de reservas con panel en tiempo real.', to: '/desarrollo' },
-  { id: 'home-feat-4', tag: 'Diseño', tagClass: 'tag-accent-2', title: 'Naming & logo Kappa Fit', desc: 'Marca deportiva de punta a punta.', to: '/diseno' }
+  {
+    id: 'kairoz-agency',
+    title: 'Panel Operativo — Agencia TikTok Live',
+    tag: 'Desarrollo',
+    tagClass: 'tag-accent',
+    tags: ['Laravel', 'React', 'PWA'],
+    desc: 'Sistema interno con roles, tareas Kanban con reporte obligatorio de cierre, objetivos semanales, horarios de equipo y auditoría, instalable como PWA.',
+    type: 'video',
+    image: '/proyectos/desarollo/kairoz-agency/preview-agency-tiktok.mp4',
+    poster: '/proyectos/desarollo/kairoz-agency/screenshot-project.webp',
+    to: '/desarrollo',
+    imageW: 1600,
+    imageH: 791
+  }
 ];
 
 export default function Home() {
@@ -77,14 +87,25 @@ export default function Home() {
           <h2 style={{ fontSize: 'clamp(26px,3vw,34px)', margin: 0 }}>Trabajo destacado</h2>
           <Link to="/desarrollo" className="btn btn-ghost">Ver todo el portfolio →</Link>
         </div>
-        <div className="grid-auto-lg">
+        <div style={{ maxWidth: 540 }}>
           {featured.map((f) => (
-            <Link to={f.to} key={f.id} style={{ display: 'flex', flexDirection: 'column', gap: 10, textDecoration: 'none', color: 'inherit' }}>
-              <ImagePlaceholder label={f.title} ratio="4/3" />
-              <span className={`tag ${f.tagClass}`}>{f.tag}</span>
-              <p style={{ fontFamily: 'var(--font-heading)', fontSize: 17 }}>{f.title}</p>
-              <p style={{ fontSize: 13, opacity: 0.72 }}>{f.desc}</p>
-            </Link>
+            <div key={f.id} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              <ProjectMedia
+                type={f.type}
+                src={f.image}
+                poster={f.poster}
+                alt={f.title}
+                width={f.imageW}
+                height={f.imageH}
+                ratio="16/10"
+              />
+              <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+                <span className={`tag ${f.tagClass}`}>{f.tag}</span>
+                {f.tags && f.tags.map((t) => <span key={t} className="tag tag-neutral">{t}</span>)}
+              </div>
+              <p style={{ fontFamily: 'var(--font-heading)', fontSize: 18 }}>{f.title}</p>
+              <p style={{ fontSize: 13.5, opacity: 0.72 }}>{f.desc}</p>
+            </div>
           ))}
         </div>
       </section>

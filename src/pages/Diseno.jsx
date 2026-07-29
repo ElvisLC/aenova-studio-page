@@ -1,15 +1,15 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { WA_LINK } from '../constants.js';
-import ImagePlaceholder from '../components/ImagePlaceholder.jsx';
+import ProjectMedia from '../components/ProjectMedia.jsx';
 
 const projects = [
-  { id: 'des-1', title: 'Identidad Café Lumen', tag: 'Branding', ratio: '4/3', desc: 'Logo, paleta y packaging para una cadena de cafeterías.' },
-  { id: 'des-2', title: 'Serie editorial Rutas Verdes', tag: 'Diseño gráfico', ratio: '4/3', desc: 'Afiches y piezas para una campaña de movilidad sostenible.' },
-  { id: 'des-3', title: 'Naming & logo Kappa Fit', tag: 'Logo', ratio: '1/1', desc: 'Marca deportiva construida desde cero.' },
-  { id: 'des-4', title: 'Kit de redes Sello Norte', tag: 'Diseño gráfico', ratio: '4/3', desc: 'Plantillas y sistema visual para comunicación digital.' },
-  { id: 'des-5', title: 'Papelería Nimbus', tag: 'Branding', ratio: '4/3', desc: 'Tarjetería y papelería corporativa.' },
-  { id: 'des-6', title: 'Packaging Vaia', tag: 'Packaging', ratio: '1/1', desc: 'Empaque de producto para e-commerce.' }
+  { id: 'des-1', title: 'Identidad Café Lumen', tag: 'Branding', ratio: '4/3', desc: 'Logo, paleta y packaging para una cadena de cafeterías.', image: '/proyectos/diseno/cafe-lumen.png' },
+  { id: 'des-2', title: 'Serie editorial Rutas Verdes', tag: 'Diseño gráfico', ratio: '4/3', desc: 'Afiches y piezas para una campaña de movilidad sostenible.', image: '/proyectos/diseno/rutas-verdes.png' },
+  { id: 'des-3', title: 'Naming & logo Kappa Fit', tag: 'Logo', ratio: '1/1', desc: 'Marca deportiva construida desde cero.', image: '/proyectos/diseno/kappa-fit.png' },
+  { id: 'des-4', title: 'Kit de redes Sello Norte', tag: 'Diseño gráfico', ratio: '4/3', desc: 'Plantillas y sistema visual para comunicación digital.', image: '/proyectos/diseno/sello-norte.png' },
+  { id: 'des-5', title: 'Papelería Nimbus', tag: 'Branding', ratio: '4/3', desc: 'Tarjetería y papelería corporativa.', image: '/proyectos/diseno/nimbus-stationery.png' },
+  { id: 'des-6', title: 'Packaging Vaia', tag: 'Packaging', ratio: '1/1', desc: 'Empaque de producto para e-commerce.', image: '/proyectos/diseno/vaia-packaging.png' }
 ];
 
 export default function Diseno() {
@@ -29,7 +29,7 @@ export default function Diseno() {
       <div className="grid-auto-lg">
         {projects.map((p) => (
           <div key={p.id} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-            <ImagePlaceholder label={p.title} ratio={p.ratio} />
+            <ProjectMedia src={p.image} alt={p.title} ratio={p.ratio} />
             <span className="tag tag-accent-2">{p.tag}</span>
             <p style={{ fontFamily: 'var(--font-heading)', fontSize: 18 }}>{p.title}</p>
             <p style={{ fontSize: 13.5, opacity: 0.72 }}>{p.desc}</p>
